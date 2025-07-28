@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      height: 100vh;
+    }
+    .hero-section{
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .gradient-text {
+      background: linear-gradient(to right, #3a3aff, #ff2ea0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .image-container {
+     max-width: 500px;
+     transform: translateX(170px);
+    }
+
+    .image-background {
+      background: linear-gradient(to bottom right, #4d2c91, #e13ca4);
+      border-radius: 80px;
+      max-width: 400px;
+      max-height: 510px;
+      margin-top: 50px;
+    }
+
+    .profile-image {
+      position: relative;
+      top: -90px;
+      width: 100%;
+    }
+    .btn {
+      border: 2px solid #3a3aff;
+      border-radius: 8px;
+      padding: 10px 20px;
+    }
+    
+    .badge-custom {
+      background: linear-gradient(to right, #3a3aff, #ff2ea0);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .about {
+      background-color: #f8f9fa;
+      padding: 80px 0;
+    }
+    .section-title { 
+      font-size: 50px;
+      font-weight: bold;
+      color: #3c3c3c;
+      background: linear-gradient(to right, #3a3aff, #ff2ea0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size:larger;
+      color: #6c757d;
+      margin-top: 10px;
+    }
+
+    .description {
+      margin: 20px auto;
+      color: #6c757d;
+      max-width: 600px;
+      font-weight: 800;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 50px;
+      background: linear-gradient(to right, #3a3aff, #ff2ea0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .social-icons a:hover {
+      color: #b312ce;
+    }
+
+    @media (max-width: 767px) {
+      .image-container {
+        transform: none;
+        max-width: 100%;
+      }
+      .description {
+        margin-left: 15px;
+        margin-right: 15px;
+        max-width: 100%;
+      }
+      .btn {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .mt-4.d-flex.justify-content-center.justify-content-lg-start.gap-3 {
+        flex-direction: column;
+        align-items: center;
+      }
+      @media (max-width: 762px) {
+      .badge-custom {
+        font-size: 10px;
+      }
+     }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm fw-bold">
+    <div class="container">
+      <img src="Geometric BT Monogram in Gradient.png" alt="logo" style="height: 50px;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+             <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Resume.html">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="project.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <section class="hero-section container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-md-start text-center">
+          <span class="badge-custom">WEB DEV · PYTHON · LEARNING DJANGO ·MACHINE LEARNING</span>
+          <h5 class="text-muted mt-3"> Fueling My Dev Journey with</h5>
+          <h1 class="display-4 fw-bold gradient-text">
+            Python & Django
+          </h1>
+
+          <div class="mt-4 d-flex justify-content-center justify-content-lg-start gap-3">
+           <a href="Resume.html"> <button class="btn">Resume</button></a>
+           <a href="project.html"><button class="btn">Projects</button></a>
+          </div>
+        </div>
+
+        <div class="image-container col-md-6 text-center mt-4 mt-md-0">
+         <div class="image-background">
+            <img src="profile_pic-removebg-preview.png" alt="Profile Image" class="profile-image" height="600"/>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="about text-center py-5" id="about">
+    <div class="container1">
+      <h2 class="section-title fw-bold">About Me</h2>
+      <p class="subtitle fw-bold"> Hi, I'm <span style="color: #b312ce;">Thazneem B. Salim</span> I design and build websites that not only look great but are also powered by <span style="color: #e13ca4;">Python and Django</span> 
+      </p>
+      <p class="description text-center">
+         I'm an enthusiastic web developer who enjoys making concepts come to life online. In addition to using Python and Django to build dependable, quick web applications, I'm also investigating the fascinating field of machine learning to produce more intelligent, dynamic digital experiences.
+      </p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/thazneem-b-salim/"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Thazneem3"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </section>
+  <footer class="py-4 mt-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="mb-0">&copy; 2025 Thazneem B. Salim. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <a href="#privacy" class=" me-3 text-decoration-none">Privacy</a>
+          <a href="#terms" class="t me-3 text-decoration-none">Terms</a>
+          <a href="#contact" class=" text-decoration-none">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
