@@ -59,6 +59,7 @@ nav img{
   border-radius:12px;
 }
 
+/* LINKS */
 .nav-links{
   display:flex;
   gap:28px;
@@ -68,18 +69,21 @@ nav img{
 .nav-links a{
   font-weight:600;
   color:#d6d6d6;
-  position:relative;
-  transition:0.3s;
+  transition:.3s;
 }
 
-/* FIX: Hover + Click + Focus */
 .nav-links a:hover,
-.nav-links a:focus,
-.nav-links a:active,
 .nav-links a.active{
   background:linear-gradient(90deg,var(--primary),var(--secondary));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+}
+
+/* HAMBURGER */
+.menu-btn{
+  display:none;
+  font-size:1.7rem;
+  cursor:pointer;
 }
 
 /* HEADER */
@@ -112,7 +116,7 @@ nav img{
   gap:36px;
 }
 
-/* PROJECT CARD */
+/* CARD */
 .project-card{
   background:var(--glass);
   border-radius:22px;
@@ -157,7 +161,7 @@ nav img{
   margin:10px auto 0;
 }
 
-/* TECH TAGS */
+/* TAGS */
 .tags{
   margin-top:14px;
   display:flex;
@@ -183,7 +187,34 @@ footer{
 /* MOBILE */
 @media(max-width:768px){
   nav{padding:12px 18px}
-  .projects{padding:0 20px 60px}
+
+  .menu-btn{display:block}
+
+  .nav-links{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    flex-direction:column;
+    background:rgba(10,10,25,.95);
+    backdrop-filter:blur(10px);
+    text-align:center;
+    max-height:0;
+    overflow:hidden;
+    transition:.4s ease;
+  }
+
+  .nav-links.active{
+    max-height:300px;
+  }
+
+  .nav-links li{
+    padding:14px 0;
+  }
+
+  .projects{
+    padding:0 20px 60px;
+  }
 }
 </style>
 </head>
@@ -194,7 +225,12 @@ footer{
 
 <nav>
   <img src="Geometric BT Monogram in Gradient.png" alt="Logo">
-  <ul class="nav-links">
+
+  <div class="menu-btn" id="menuBtn">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="Resume.html">Resume</a></li>
     <li><a href="project.html" class="active">Projects</a></li>
@@ -209,18 +245,15 @@ footer{
 
 <section class="projects">
 
+<!-- PROJECT CARDS (UNCHANGED) -->
+
 <div class="project-card">
   <img src="redressal_system.png">
   <span>Live Project – Dexpro Innovations</span>
   <h3>Grievance Redressal System</h3>
-  <p>
-    Enhanced an existing grievance redressal platform by integrating frontend and backend modules and building secure REST APIs.
-  </p>
+  <p>Enhanced an existing grievance redressal platform by integrating frontend and backend modules and building secure REST APIs.</p>
   <div class="tags">
-    <div class="tag">Django</div>
-    <div class="tag">DRF</div>
-    <div class="tag">REST APIs</div>
-    <div class="tag">Bootstrap</div>
+    <div class="tag">Django</div><div class="tag">DRF</div><div class="tag">REST APIs</div><div class="tag">Bootstrap</div>
   </div>
 </div>
 
@@ -228,14 +261,9 @@ footer{
   <img src="hirehub.png">
   <span>Individual Full Stack Project</span>
   <h3>HireHub – Job & Internship Platform</h3>
-  <p>
-    Built a complete recruitment platform enabling employers, candidates, and administrators to manage hiring workflows.
-  </p>
+  <p>Built a complete recruitment platform enabling employers, candidates, and administrators to manage hiring workflows.</p>
   <div class="tags">
-    <div class="tag">Django</div>
-    <div class="tag">JavaScript</div>
-    <div class="tag">Bootstrap</div>
-    <div class="tag">DRF</div>
+    <div class="tag">Django</div><div class="tag">JavaScript</div><div class="tag">Bootstrap</div><div class="tag">DRF</div>
   </div>
 </div>
 
@@ -243,14 +271,9 @@ footer{
   <img src="cyberbullying.png">
   <span>Machine Learning Project</span>
   <h3>Cyberbullying Detection System</h3>
-  <p>
-    ML-powered Django application using NLP and RNN/LSTM models to detect cyberbullying with automated alerts.
-  </p>
+  <p>ML-powered Django application using NLP and RNN/LSTM models to detect cyberbullying with automated alerts.</p>
   <div class="tags">
-    <div class="tag">Python</div>
-    <div class="tag">NLP</div>
-    <div class="tag">RNN</div>
-    <div class="tag">LSTM</div>
+    <div class="tag">Python</div><div class="tag">NLP</div><div class="tag">RNN</div><div class="tag">LSTM</div>
   </div>
 </div>
 
@@ -258,14 +281,9 @@ footer{
   <img src="german.jpg">
   <span>Data Science Capstone</span>
   <h3>German Credit Risk Analysis</h3>
-  <p>
-    Performed EDA and evaluated ML models to predict creditworthiness, deployed with a Tkinter interface.
-  </p>
+  <p>Performed EDA and evaluated ML models to predict creditworthiness, deployed with a Tkinter interface.</p>
   <div class="tags">
-    <div class="tag">Python</div>
-    <div class="tag">Pandas</div>
-    <div class="tag">EDA</div>
-    <div class="tag">ML</div>
+    <div class="tag">Python</div><div class="tag">Pandas</div><div class="tag">EDA</div><div class="tag">ML</div>
   </div>
 </div>
 
@@ -273,14 +291,9 @@ footer{
   <img src="strong.jpg">
   <span>Security Utility</span>
   <h3>Strong Password Generator</h3>
-  <p>
-    Secure password generator using Python & Tkinter with encryption and safe in-memory handling.
-  </p>
+  <p>Secure password generator using Python & Tkinter with encryption and safe in-memory handling.</p>
   <div class="tags">
-    <div class="tag">Python</div>
-    <div class="tag">Tkinter</div>
-    <div class="tag">Encryption</div>
-    <div class="tag">Security</div>
+    <div class="tag">Python</div><div class="tag">Tkinter</div><div class="tag">Encryption</div><div class="tag">Security</div>
   </div>
 </div>
 
@@ -291,6 +304,11 @@ footer{
 </footer>
 
 <script>
+/* HAMBURGER */
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
+menuBtn.onclick=()=>navLinks.classList.toggle("active");
+
 /* BACKGROUND NETWORK */
 const canvas=document.getElementById("bg-network");
 const ctx=canvas.getContext("2d");
@@ -316,8 +334,7 @@ for(let i=0;i<COUNT;i++){
 (function animate(){
   ctx.clearRect(0,0,w,h);
   nodes.forEach((n,i)=>{
-    n.x+=n.vx;
-    n.y+=n.vy;
+    n.x+=n.vx;n.y+=n.vy;
     if(n.x<0||n.x>w)n.vx*=-1;
     if(n.y<0||n.y>h)n.vy*=-1;
 
@@ -327,9 +344,7 @@ for(let i=0;i<COUNT;i++){
     ctx.fill();
 
     for(let j=i+1;j<nodes.length;j++){
-      let m=nodes[j];
-      let dx=n.x-m.x,dy=n.y-m.y;
-      let d=Math.sqrt(dx*dx+dy*dy);
+      let m=nodes[j],dx=n.x-m.x,dy=n.y-m.y,d=Math.sqrt(dx*dx+dy*dy);
       if(d<MAX){
         ctx.strokeStyle=`rgba(120,120,255,${1-d/MAX})`;
         ctx.lineWidth=.6;

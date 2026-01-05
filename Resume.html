@@ -8,6 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <style>
 :root{
   --primary:#3a3aff;
@@ -33,15 +36,28 @@ nav,section,footer{position:relative;z-index:2}
 /* NAV */
 nav{
   padding:14px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
   background:linear-gradient(90deg,rgba(58,58,255,.2),rgba(255,46,160,.2));
   backdrop-filter:blur(10px);
 }
-nav img{height:48px;border-radius:12px}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{font-weight:600;color:#d6d6d6}
+
+.glass-nav{
+  background:linear-gradient(90deg,rgba(58,58,255,.25),rgba(255,46,160,.25)) !important;
+  backdrop-filter:blur(12px) !important;
+}
+
+.nav-link{
+  font-weight:600;
+  color:#ddd !important;
+  transition:.3s;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active{
+  background:linear-gradient(90deg,#3a3aff,#ff2ea0);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
 /* HEADER */
 .resume-header{
@@ -96,108 +112,63 @@ nav img{height:48px;border-radius:12px}
   margin:auto;
 }
 .timeline::before{
-  content:'';
-  position:absolute;
-  left:50%;
-  top:0;
-  width:4px;
-  height:100%;
+  content:''; position:absolute; left:50%; top:0;
+  width:4px; height:100%;
   background:linear-gradient(var(--primary),var(--secondary));
   transform:translateX(-50%);
 }
 .timeline-item{
-  width:50%;
-  padding:20px 40px;
-  position:relative;
-  opacity:0;
-  transform:translateY(40px);
+  width:50%; padding:20px 40px;
+  position:relative; opacity:0; transform:translateY(40px);
   transition:.6s ease;
 }
 .timeline-item.show{opacity:1;transform:none}
 .timeline-item.left{left:0;text-align:right}
 .timeline-item.right{left:50%}
-
 .timeline-item::after{
-  content:'';
-  position:absolute;
-  top:24px;
-  width:16px;height:16px;
-  border-radius:50%;
-  background:var(--secondary);
+  content:''; position:absolute; top:24px; width:16px;height:16px;
+  border-radius:50%; background:var(--secondary);
 }
 .timeline-item.left::after{right:-8px}
 .timeline-item.right::after{left:-8px}
-
 .timeline-item h3{font-size:1.2rem;margin-bottom:6px}
 .timeline-item span{font-size:.9rem;color:#bbb}
 .timeline-item ul{margin-top:10px;color:#ccc;padding-left:18px}
 .timeline-item ul li{margin-bottom:6px}
-
 .icon{font-size:1.6rem;color:var(--secondary);margin-bottom:8px}
 
 /* SKILLS */
 .skills-container{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:40px;
-  max-width:900px;
-  margin:auto;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:40px;
+  max-width:900px; margin:auto;
 }
 .skill-category{
-  flex:1 1 200px;
-  background:rgba(255,255,255,0.05);
-  padding:20px 18px;
-  border-radius:16px;
-  text-align:center;
+  flex:1 1 200px; background:rgba(255,255,255,0.05);
+  padding:20px 18px; border-radius:16px; text-align:center;
   transition:transform .3s, box-shadow .3s;
 }
 .skill-category:hover{
   transform:translateY(-6px);
   box-shadow:0 12px 30px rgba(58,58,255,0.2);
 }
-.skill-category h3{
-  font-size:1.2rem;
-  margin-bottom:10px;
-  color:var(--secondary);
-}
-.skill-category p{
-  color:#ccc;
-  font-weight:500;
-  line-height:1.5;
-}
+.skill-category h3{font-size:1.2rem;margin-bottom:10px;color:var(--secondary);}
+.skill-category p{color:#ccc;font-weight:500;line-height:1.5}
 
 /* EDUCATION */
-.education-item{
-  margin-bottom:20px;
-}
+.education-item{margin-bottom:20px;}
 .education-item h3{margin-bottom:6px}
 .education-item span{font-size:.9rem;color:#bbb}
 
 /* MODAL */
 .modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:10;
+  position:fixed; inset:0; background:rgba(0,0,0,.7);
+  display:none; align-items:center; justify-content:center; z-index:10;
 }
 .modal-content{
-  width:90%;
-  max-width:900px;
-  background:#000;
-  border-radius:14px;
-  overflow:hidden;
+  width:90%; max-width:900px; background:#000; border-radius:14px; overflow:hidden;
 }
-.modal iframe{width:100%;height:80vh;border:0}
-.modal-header{
-  display:flex;
-  justify-content:space-between;
-  padding:10px 16px;
-  background:#111;
-}
+.modal iframe{width:100%; height:80vh; border:0}
+.modal-header{display:flex; justify-content:space-between; padding:10px 16px; background:#111;}
 
 /* FOOTER */
 footer{text-align:center;padding:30px;color:#888}
@@ -216,16 +187,30 @@ footer{text-align:center;padding:30px;color:#888}
 
 <canvas id="bg-network"></canvas>
 
-<nav>
-  <img src="Geometric BT Monogram in Gradient.png">
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="Resume.html">Resume</a></li>
-    <li><a href="project.html">Projects</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark glass-nav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="Geometric BT Monogram in Gradient.png" alt="logo" height="45">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+      <ul class="navbar-nav gap-lg-4 text-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="Resume.html">Resume</a></li>
+        <li class="nav-item"><a class="nav-link" href="project.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
+<!-- HEADER -->
 <section class="resume-header">
   <h1>Resume</h1>
   <p>Full Stack Developer | Python & Django | Data Science Enthusiast</p>
@@ -237,7 +222,6 @@ footer{text-align:center;padding:30px;color:#888}
 <!-- EXPERIENCE -->
 <section class="section">
 <h2>Professional Experience</h2>
-
 <div class="timeline">
 
 <div class="timeline-item left">
@@ -246,10 +230,10 @@ footer{text-align:center;padding:30px;color:#888}
   <span>April 2025 – Present</span>
   <ul>
     <li>Completed Python Full Stack training with hands-on Django development.</li>
-    <li>Contributed to a live production <b>Grievance Redressal System</b> at Dexpro Innovations.</li>
-    <li>Developed backend modules with Django & Django REST Framework.</li>
-    <li>Integrated frontend using HTML, CSS, Bootstrap, and JavaScript.</li>
-    <li>Used Git & GitHub for version control and teamwork in an agile environment.</li>
+    <li>Contributed to a live production <b>Grievance Redressal System</b>.</li>
+    <li>Developed backend modules with Django & DRF.</li>
+    <li>Integrated frontend using HTML, CSS, Bootstrap, JS.</li>
+    <li>Used Git & GitHub for version control in agile environment.</li>
   </ul>
 </div>
 
@@ -259,7 +243,7 @@ footer{text-align:center;padding:30px;color:#888}
   <span>3 Months</span>
   <ul>
     <li>Built responsive UI using HTML, CSS, Bootstrap.</li>
-    <li>Developed WordPress websites and improved SEO performance.</li>
+    <li>Developed WordPress websites & improved SEO.</li>
   </ul>
 </div>
 
@@ -326,6 +310,9 @@ footer{text-align:center;padding:30px;color:#888}
   </div>
 </div>
 
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
 /* MODAL */
 function openModal(){document.getElementById("resumeModal").style.display="flex"}
@@ -377,6 +364,7 @@ for(let i=0;i<COUNT;i++){
 
 </body>
 </html>
+
 
 
 
