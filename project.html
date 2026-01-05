@@ -1,170 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet"/>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Thazneem B. Salim</title>
 
-  <style>
-    body {
-      margin: 0 !important;
-      padding: 0 !important;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 15px;
-      height: 100vh;
-    }
-    .text-gradient {
-      background: linear-gradient(to right, #6610f2, #d63384);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    .project-section img {
-      border: 3px solid #ddd;
-      border-radius: 8px;
-      width: 300px;
-      height: 200px;
-    }
+<style>
+:root{
+  --primary:#3a3aff;
+  --secondary:#ff2ea0;
+  --dark:#0b0c1a;
+  --glass:rgba(255,255,255,0.06);
+}
 
-    </style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:var(--dark);
+  color:#f5f6fa;
+  overflow-x:hidden;
+}
+
+a{text-decoration:none;color:inherit}
+
+/* BACKGROUND NETWORK */
+#bg-network{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+
+nav,section,footer{
+  position:relative;
+  z-index:2;
+}
+
+/* NAVBAR */
+nav{
+  padding:14px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(90deg,rgba(58,58,255,.2),rgba(255,46,160,.2));
+  backdrop-filter:blur(10px);
+}
+
+nav img{
+  height:48px;
+  border-radius:12px;
+}
+
+.nav-links{
+  display:flex;
+  gap:28px;
+  list-style:none;
+}
+
+.nav-links a{
+  font-weight:600;
+  color:#d6d6d6;
+  position:relative;
+  transition:0.3s;
+}
+
+/* FIX: Hover + Click + Focus */
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a:active,
+.nav-links a.active{
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* HEADER */
+.projects-header{
+  padding:110px 20px 70px;
+  text-align:center;
+  max-width:900px;
+  margin:auto;
+}
+
+.projects-header h1{
+  font-size:3rem;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.projects-header p{
+  margin-top:18px;
+  color:#bbb;
+}
+
+/* PROJECT GRID */
+.projects{
+  max-width:1200px;
+  margin:auto;
+  padding:0 40px 80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:36px;
+}
+
+/* PROJECT CARD */
+.project-card{
+  background:var(--glass);
+  border-radius:22px;
+  padding:22px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 20px 60px rgba(0,0,0,.55);
+  transition:.35s;
+  text-align:center;
+}
+
+.project-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 30px 80px rgba(58,58,255,.25);
+}
+
+.project-card img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  border-radius:16px;
+  margin-bottom:16px;
+}
+
+.project-card span{
+  display:block;
+  font-size:.85rem;
+  color:var(--secondary);
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+.project-card h3{
+  font-size:1.3rem;
+  margin-bottom:8px;
+}
+
+.project-card p{
+  color:#ccc;
+  font-size:.95rem;
+  line-height:1.6;
+  max-width:90%;
+  margin:10px auto 0;
+}
+
+/* TECH TAGS */
+.tags{
+  margin-top:14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+}
+
+.tag{
+  font-size:.75rem;
+  padding:6px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#888;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:12px 18px}
+  .projects{padding:0 20px 60px}
+}
+</style>
 </head>
-<body>
- <nav class="navbar navbar-expand-lg bg-white shadow-sm fw-bold">
-    <div class="container">
-      <img src="Geometric BT Monogram in Gradient.png" alt="logo" style="height: 50px;">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-             <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Resume.html">Resume</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="project.html">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> 
-   <section class=" pt-3 mt-3">
-    <div class="container py-1 d-flex flex-column align-items-center">
-      <h1 class="fw-bold text-gradient display-5 mb-5">Projects</h1>
-      <div class="w-100">
-        <div class="d-flex justify-content-between align-items-center mb-4">       
-        </div>
-        <div class="card mb-4 shadow-sm border-0">
-          <div class="row g-0">
-            <div class="col-md-4 p-2 bg-light">
-              <h6 class="text-primary fs-2 fw-bold">Cyberbullying Detection using Machine Learning</h6>
-              <p class="mb-0 ">
-                  Developed a web application using Python and 
-                  Django that leverages ML and DL(RNN,LSTM) techniques to identify and predict cyberbullying tweets. The system is integrated 
-                  with NLP tools for text analysis and classification. It provides a real-time alert feature by sending email notifications to parents when 
-                  cyberbullying is detected.               
-              </p>
-            </div>
-            <div class=" project-section img col-md-8 p-2 d-flex justify-content-center">
-              <a href="https://engineering.ucdenver.edu/current-students/capstone-expo/archived-expos/spring-2020/computer-science/csci14-cyberbullying-detection-system" target="_blank"><img src="cyberbullying.png" height="300px" width="300px" alt="cyberbullying"></a>
-            </div>
-          </div>
-        </div>
-      </div> 
-    </div>
-  </section>
 
-  <section class="pt-3 mt-3">
-    <div class="container py-1 d-flex flex-column align-items-center">
-      <div class="w-100">
-        <div class="d-flex justify-content-between align-items-center mb-4">       
-        </div>
-        <div class="card mb-4 shadow-sm border-0">
-          <div class="row g-0">
-            <div class="col-md-4 p-2 bg-light">
-              <h6 class="text-primary fs-2 fw-bold">Credit Risk Analysis</h6>
-              <p class="mb-0 ">
-                  Developed a system to predict creditworthiness using Python. The project includes EDA & multiple
-                  ML models. The model was evaluated using various metrics and deployed as a user-friendly application with a Tkinter-based
-                  interface.               
-              </p>
-            </div>
-            <div class=" project-section img col-md-8 p-2 d-flex justify-content-center">
-              <a href="https://engineering.ucdenver.edu/current-students/capstone-expo/archived-expos/spring-2020/computer-science/csci14-cyberbullying-detection-system" target="_blank"><img src="german.jpg" height="400px" width="500px" alt=""></a>
-            </div>
-          </div>
-        </div>
-      </div> 
-    </div>
-  </section>
-   <section class="pt-3 mt-3">
-    <div class="container py-1 d-flex flex-column align-items-center">
-      <div class="w-100">
-        <div class="d-flex justify-content-between align-items-center mb-4">       
-        </div>
-        <div class="card mb-4 shadow-sm border-0">
-          <div class="row g-0">
-            <div class="col-md-4 p-2 bg-light">
-              <h6 class="text-primary fs-2 fw-bold">Strong password generator based on user input</h6>
-              <p class="mb-0 ">
-                 Developed a user-friendly application using Python and 
-                 Tkinter, offering secure password generation and encryption. The system utilizes memory-based storage instead 
-                 of databases, minimizing hacking risks. Key features include a Tkinter-based GUI, secure memory management, 
-                 and options to receive passwords via email, WhatsApp, and SMS.              
-              </p>
-            </div>
-            <div class=" project-section img col-md-8 p-2 d-flex justify-content-center">
-              <a href="https://engineering.ucdenver.edu/current-students/capstone-expo/archived-expos/spring-2020/computer-science/csci14-cyberbullying-detection-system" target="_blank"><img src="strong.jpg" height="400px" width="500px" alt=""></a>
-            </div>
-          </div>
-        </div>
-      </div> 
-    </div>
-  </section>
-  <section class="pt-3 mt-3">
-    <div class="container py-1 d-flex flex-column align-items-center">
-      <h1 class="fw-bold text-gradient display-5 mb-5">Seminar</h1>
-      <div class="w-100">
-        <div class="d-flex justify-content-between align-items-center mb-4">       
-        </div>
-        <div class="card mb-4 shadow-sm border-0">
-          <div class="row g-0">
-            <div class="col-md-4 p-2 bg-light">
-              <h6 class="text-primary fs-2 fw-bold">A study on 5G technologies and it's applications in telecommunications</h6>
-              <p class="mb-0 ">
-                 5G, the fifth generation of mobile network technology, represents a transformative leap in telecommunications. It offers ultra-fast data speeds, low latency, massive device connectivity, and enhanced network reliability. This study explores the core principles behind 5G technology, including its infrastructure, spectrum usage, and architecture.             
-              </p>
-            </div>
-            <div class=" project-section img col-md-8 p-2 d-flex justify-content-center">
-              <a href="https://engineering.ucdenver.edu/current-students/capstone-expo/archived-expos/spring-2020/computer-science/csci14-cyberbullying-detection-system" target="_blank"><img src="5G Connectivity in a Smart City.png" height="300px" width="300px" alt="cyberbullying"></a>
-            </div>
-          </div>
-        </div>
-      </div> 
-    </div>
-  </section>
-  <footer class="py-4 mt-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 text-center text-md-start">
-          <p class="mb-0">&copy; 2025 Thazneem B. Salim. All rights reserved.</p>
-        </div>
-        <div class="col-md-6 text-center text-md-end">
-          <a href="#privacy" class=" me-3 text-decoration-none">Privacy</a>
-          <a href="#terms" class="t me-3 text-decoration-none">Terms</a>
-          <a href="#contact" class=" text-decoration-none">Contact</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+<body>
+
+<canvas id="bg-network"></canvas>
+
+<nav>
+  <img src="Geometric BT Monogram in Gradient.png" alt="Logo">
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Resume.html">Resume</a></li>
+    <li><a href="project.html" class="active">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="projects-header">
+  <h1>Projects</h1>
+  <p>Selected academic, individual, and live production projects</p>
+</section>
+
+<section class="projects">
+
+<div class="project-card">
+  <img src="redressal_system.png">
+  <span>Live Project – Dexpro Innovations</span>
+  <h3>Grievance Redressal System</h3>
+  <p>
+    Enhanced an existing grievance redressal platform by integrating frontend and backend modules and building secure REST APIs.
+  </p>
+  <div class="tags">
+    <div class="tag">Django</div>
+    <div class="tag">DRF</div>
+    <div class="tag">REST APIs</div>
+    <div class="tag">Bootstrap</div>
+  </div>
+</div>
+
+<div class="project-card">
+  <img src="hirehub.png">
+  <span>Individual Full Stack Project</span>
+  <h3>HireHub – Job & Internship Platform</h3>
+  <p>
+    Built a complete recruitment platform enabling employers, candidates, and administrators to manage hiring workflows.
+  </p>
+  <div class="tags">
+    <div class="tag">Django</div>
+    <div class="tag">JavaScript</div>
+    <div class="tag">Bootstrap</div>
+    <div class="tag">DRF</div>
+  </div>
+</div>
+
+<div class="project-card">
+  <img src="cyberbullying.png">
+  <span>Machine Learning Project</span>
+  <h3>Cyberbullying Detection System</h3>
+  <p>
+    ML-powered Django application using NLP and RNN/LSTM models to detect cyberbullying with automated alerts.
+  </p>
+  <div class="tags">
+    <div class="tag">Python</div>
+    <div class="tag">NLP</div>
+    <div class="tag">RNN</div>
+    <div class="tag">LSTM</div>
+  </div>
+</div>
+
+<div class="project-card">
+  <img src="german.jpg">
+  <span>Data Science Capstone</span>
+  <h3>German Credit Risk Analysis</h3>
+  <p>
+    Performed EDA and evaluated ML models to predict creditworthiness, deployed with a Tkinter interface.
+  </p>
+  <div class="tags">
+    <div class="tag">Python</div>
+    <div class="tag">Pandas</div>
+    <div class="tag">EDA</div>
+    <div class="tag">ML</div>
+  </div>
+</div>
+
+<div class="project-card">
+  <img src="strong.jpg">
+  <span>Security Utility</span>
+  <h3>Strong Password Generator</h3>
+  <p>
+    Secure password generator using Python & Tkinter with encryption and safe in-memory handling.
+  </p>
+  <div class="tags">
+    <div class="tag">Python</div>
+    <div class="tag">Tkinter</div>
+    <div class="tag">Encryption</div>
+    <div class="tag">Security</div>
+  </div>
+</div>
+
+</section>
+
+<footer>
+  © 2025 Thazneem B. Salim. All Rights Reserved.
+</footer>
+
+<script>
+/* BACKGROUND NETWORK */
+const canvas=document.getElementById("bg-network");
+const ctx=canvas.getContext("2d");
+let w,h,nodes=[];
+const COUNT=70,MAX=130;
+
+function resize(){
+  w=canvas.width=innerWidth;
+  h=canvas.height=innerHeight;
+}
+resize();
+addEventListener("resize",resize);
+
+for(let i=0;i<COUNT;i++){
+  nodes.push({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    vx:(Math.random()-.5)*.4,
+    vy:(Math.random()-.5)*.4
+  });
+}
+
+(function animate(){
+  ctx.clearRect(0,0,w,h);
+  nodes.forEach((n,i)=>{
+    n.x+=n.vx;
+    n.y+=n.vy;
+    if(n.x<0||n.x>w)n.vx*=-1;
+    if(n.y<0||n.y>h)n.vy*=-1;
+
+    ctx.fillStyle="rgba(255,255,255,.4)";
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,1.2,0,Math.PI*2);
+    ctx.fill();
+
+    for(let j=i+1;j<nodes.length;j++){
+      let m=nodes[j];
+      let dx=n.x-m.x,dy=n.y-m.y;
+      let d=Math.sqrt(dx*dx+dy*dy);
+      if(d<MAX){
+        ctx.strokeStyle=`rgba(120,120,255,${1-d/MAX})`;
+        ctx.lineWidth=.6;
+        ctx.beginPath();
+        ctx.moveTo(n.x,n.y);
+        ctx.lineTo(m.x,m.y);
+        ctx.stroke();
+      }
+    }
+  });
+  requestAnimationFrame(animate);
+})();
+</script>
+
 </body>
 </html>
